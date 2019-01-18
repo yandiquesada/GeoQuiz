@@ -6,6 +6,7 @@
 
     <string name="correct_toast">Correct</string>
     <string name="incorrect_toast">Incorrect</string>
+    <string name="prev_button">PREV</string>
     <string name="next_button">Next</string>
 
     <string name="question_australia">Canberra is the Capital of Australia</string>
