@@ -18,6 +18,7 @@ public class QuizActivity extends AppCompatActivity {
     private TextView mQuestionTextView;
 
     private static final String TAG = "QuizActivity";
+    private static final String KEY_INDEX = "index";
 
     private Question[] mQuestionBank = new Question[]{
             new Question(R.string.question_australia,true),
@@ -32,6 +33,10 @@ public class QuizActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(savedInstanceState != null){
+            mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
+        }
+
         Log.d(TAG, "onCreate called");
 
         setContentView(R.layout.activity_quiz);
@@ -119,6 +124,13 @@ public class QuizActivity extends AppCompatActivity {
     public void onPause(){
         super.onPause();
         Log.d(TAG, "onPause called");
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState){
+        super.onSaveInstanceState(savedInstanceState);
+        Log.d(TAG, "onSaveInstanceState called");
+        savedInstanceState.putInt(KEY_INDEX, mCurrentIndex);
     }
 
     @Override
